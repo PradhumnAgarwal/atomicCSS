@@ -1,0 +1,9 @@
+input 3 params;
+
+
+size { padding top bottom}: large, default, small     
+
+type{padding increae, pseudo classes, }: placeholder only,   icon left,    icon right,  two icons      prefix suffix
+
+state{ border color, text color}: default, hover, focused, typing, filled, disabled
+

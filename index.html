@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="root.css">
+    <title>Shortlisting Task - 3 </title>
+    <style>
+        .box {
+            position: absolute;
+            top: 50vh;
+            left: 50vw;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+            /* width: 350px; */
+            width: 60%;
+            min-height: 350px;
+            background-color: azure;
+        }
+
+        @media (max-width:400px) {
+            .box {
+                width: 80%;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <div type="text" class="input large icon-left input-st-default" placeholder="Input" id="input">
+            <div class="input-left-icon"></div>
+            <input placeholder="Placeholder">
+        </div>
+        <!-- <div type="text" class="input small icon-right" placeholder="Input">
+            <div class="input-right-icon"></div>
+            <input placeholder="Input">
+        </div>
+        <div type="text" class="input small icon-left" placeholder="Input">
+            <div class="input-left-icon"></div>
+            <input placeholder="Input">
+        </div>
+        <div type="text" class="input small two-icon" placeholder="Input">
+            <div class="input-two-left-icon"></div>
+            <div class="input-two-right-icon"></div>
+            <input placeholder="Input">
+        </div> -->
+        <button class="primary st-default default-size" id="button">Submit</button>
+    </div>
+</body>
+
+<script>
+    const input = document.getElementById("input")
+    const button = document.getElementById("button")
+
+    input.addEventListener("mouseenter", function () {
+        input.classList.remove("input-st-default");
+        input.classList.add("input-st-hover");
+    });
+    input.addEventListener("mouseleave", function () {
+        input.classList.add("input-st-default");
+        input.classList.remove("input-st-hover");
+        input.classList.remove("input-st-focused")
+        input.classList.remove("input-st-typing")
+    });
+    input.addEventListener("click", function () {
+        input.classList.add("input-st-focused");
+        input.classList.remove("input-st-hover");
+    });
+    input.addEventListener("input", function () {
+        input.classList.add("input-st-typing");
+        input.classList.remove("input-st-hover");
+        input.classList.remove("input-st-focused")
+    });
+
+    button.addEventListener("click", function () {
+        button.classList.remove("st-default");
+        button.classList.add("st-loading");
+        setTimeout(() => {
+            button.classList.remove("st-loading");
+            button.classList.add("st-disabled");
+        },2000);
+    });
+    
+
+</script>
+
+</html>
